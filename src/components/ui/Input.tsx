@@ -24,8 +24,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full rounded-sm px-3.5 py-3 text-sm',
-            'bg-[#0a0d14] border border-white/10 text-white placeholder:text-slate-500',
+            'w-full rounded-md px-4 py-3 text-sm',
+            'bg-black/20 border border-white/10 text-white placeholder:text-slate-500',
             'focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500',
             'transition-colors duration-150',
             'disabled:opacity-50 disabled:cursor-not-allowed',
@@ -67,8 +67,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full rounded-sm px-3.5 py-3 text-sm',
-            'bg-[#0a0d14] border border-white/10 text-white',
+            'w-full rounded-md px-4 py-3 text-sm',
+            'bg-black/20 border border-white/10 text-white',
             'focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500',
             'transition-colors duration-150',
             'disabled:opacity-50 disabled:cursor-not-allowed',
@@ -120,8 +120,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           id={inputId}
           rows={3}
           className={cn(
-            'w-full rounded-sm px-3.5 py-3 text-sm resize-none',
-            'bg-[#0a0d14] border border-white/10 text-white placeholder:text-slate-500',
+            'w-full rounded-md px-4 py-3 text-sm resize-none',
+            'bg-black/20 border border-white/10 text-white placeholder:text-slate-500',
             'focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500',
             'transition-colors duration-150',
             'disabled:opacity-50 disabled:cursor-not-allowed',

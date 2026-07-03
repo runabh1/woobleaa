@@ -10,8 +10,10 @@ import {
   AlertTriangle,
   Clock,
   CheckCircle,
+  LogOut,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
+import { createClient } from '@/lib/supabase/client';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -26,6 +28,12 @@ const quickFilters = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const supabase = createClient();
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    window.location.href = '/login';
+  };
 
   return (
     <>
@@ -91,8 +99,16 @@ export function Sidebar() {
         </div>
 
         {/* Footer — always pinned to bottom, never overlaps */}
-        <div className="flex-shrink-0 px-3 py-4 border-t border-white/5">
-          <div className="rounded-lg px-3 py-2.5 bg-white/[0.03] border border-white/5">
+        <div className="flex-shrink-0 px-3 py-4 border-t border-white/5 flex flex-col gap-3">
+          <button
+            onClick={handleSignOut}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all text-left"
+            id="sidebar-signout"
+          >
+            <LogOut className="h-4 w-4" />
+            <span>Sign Out</span>
+          </button>
+          <div className="rounded-md px-3 py-2.5 bg-white/[0.03] border border-white/5">
             <p className="text-[10px] font-semibold text-slate-400">Wooble Challenge '26</p>
             <p className="text-[9px] text-slate-600 mt-0.5">Expiry Alert Dashboard</p>
           </div>

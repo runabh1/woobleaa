@@ -107,7 +107,7 @@ export default function LoginPage() {
             {isSignUp ? 'Create your account' : 'Sign in to your account'}
           </h2>
 
-          <form onSubmit={handleAuth} className="space-y-4">
+          <form onSubmit={handleAuth} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <Input
               label="Email address"
               type="email"
@@ -118,7 +118,7 @@ export default function LoginPage() {
               autoComplete="email"
               id="login-email"
             />
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-2">
               <label htmlFor="login-password" className="text-sm font-medium text-slate-300">
                 Password <span className="text-red-400">*</span>
               </label>
@@ -131,7 +131,7 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   required
                   autoComplete={isSignUp ? 'new-password' : 'current-password'}
-                  className="w-full rounded-xl px-3.5 py-2.5 pr-10 text-sm bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-colors"
+                  className="w-full rounded-md px-3.5 py-2.5 pr-10 text-sm bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-colors"
                 />
                 <button
                   type="button"
@@ -144,12 +144,12 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full mt-2" loading={loading}>
+            <Button type="submit" className="w-full" style={{ marginTop: '8px' }} loading={loading}>
               {isSignUp ? 'Create Account' : 'Sign In'}
             </Button>
           </form>
 
-          <div className="relative my-5">
+          <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-white/10" />
             </div>

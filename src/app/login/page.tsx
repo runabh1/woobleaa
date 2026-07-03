@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { ToastProvider } from '@/components/ui/ToastProvider';
 import toast from 'react-hot-toast';
-import { ShieldCheck, Eye, EyeOff } from 'lucide-react';
+import { Clock, Eye, EyeOff } from 'lucide-react';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -84,16 +84,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: 'radial-gradient(ellipse at top, #1a1a2e 0%, #0f0f1a 70%)' }}>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-[#0a0d14] relative overflow-hidden">
       <ToastProvider />
-      {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#6366f1 1px, transparent 1px), linear-gradient(90deg, #6366f1 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      {/* Soft radial glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[100px]" />
+      </div>
 
-      <div className="relative w-full max-w-md animate-slide-up">
+      <div className="relative w-full max-w-md animate-slide-up z-10">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center h-14 w-14 rounded-md bg-brand-500/20 border border-brand-500/30 mb-4">
-            <ShieldCheck className="h-7 w-7 text-brand-400" />
+          <div className="inline-flex items-center justify-center h-14 w-14 rounded-md bg-[#121620] border border-white/10 mb-4 shadow-sm">
+            <Clock className="h-7 w-7 text-brand-400" />
           </div>
           <h1 className="text-2xl font-bold text-white">NeverExpire</h1>
           <p className="mt-1 text-sm text-slate-400">
@@ -102,7 +104,7 @@ export default function LoginPage() {
         </div>
 
         {/* Card */}
-        <div className="glass-card p-8">
+        <div className="bg-[#121620] border border-white/10 rounded-lg p-10 shadow-2xl">
           <h2 className="text-lg font-semibold text-white mb-6">
             {isSignUp ? 'Create your account' : 'Sign in to your account'}
           </h2>
@@ -131,7 +133,7 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   required
                   autoComplete={isSignUp ? 'new-password' : 'current-password'}
-                  className="w-full rounded-sm px-3.5 py-2.5 pr-10 text-sm bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-colors"
+                  className="w-full rounded-sm px-3.5 py-3 pr-10 text-sm bg-[#0a0d14] border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500 transition-colors"
                 />
                 <button
                   type="button"
@@ -144,7 +146,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full" style={{ marginTop: '8px' }} loading={loading}>
+            <Button type="submit" className="w-full" loading={loading}>
               {isSignUp ? 'Create Account' : 'Sign In'}
             </Button>
           </form>
@@ -154,12 +156,12 @@ export default function LoginPage() {
               <div className="w-full border-t border-white/10" />
             </div>
             <div className="relative flex justify-center">
-              <span className="px-3 text-xs text-slate-500" style={{ background: '#1a1a2e' }}>or</span>
+              <span className="px-3 text-xs text-slate-500" style={{ background: '#121620' }}>or</span>
             </div>
           </div>
 
-          <Button variant="secondary" className="w-full" onClick={handleDemoLogin} loading={loading} id="demo-login-btn">
-            🚀 Try Demo (Pre-loaded data)
+          <Button variant="outline" className="w-full" onClick={handleDemoLogin} loading={loading} id="demo-login-btn">
+            Try Demo (Pre-loaded data)
           </Button>
 
           <p className="mt-6 text-center text-sm text-slate-400">

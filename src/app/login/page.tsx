@@ -104,12 +104,13 @@ export default function LoginPage() {
         </div>
 
         {/* Card */}
-        <div className="bg-surface-card border border-white/10 rounded-xl p-8 sm:p-10 shadow-2xl">
-          <h2 className="text-xl font-semibold text-white mb-8">
+        <div className="bg-surface-card border border-white/10 rounded-xl shadow-2xl" style={{ padding: '40px' }}>
+          <h2 className="text-white" style={{ fontSize: '20px', fontWeight: 600, marginBottom: '24px' }}>
             {isSignUp ? 'Create your account' : 'Sign in to your account'}
           </h2>
 
-          <form onSubmit={handleAuth} className="flex flex-col gap-6">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <form onSubmit={handleAuth} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <Input
               label="Email address"
               type="email"
@@ -120,7 +121,7 @@ export default function LoginPage() {
               autoComplete="email"
               id="login-email"
             />
-            <div className="flex flex-col gap-2">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <label htmlFor="login-password" className="text-sm font-medium text-slate-300">
                 Password <span className="text-red-400">*</span>
               </label>
@@ -133,7 +134,8 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   required
                   autoComplete={isSignUp ? 'new-password' : 'current-password'}
-                  className="w-full rounded-md px-4 py-3 pr-10 text-sm bg-black/20 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                  className="w-full rounded-md pr-10 text-sm bg-black/20 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                  style={{ padding: '12px 16px' }}
                 />
                 <button
                   type="button"
@@ -149,14 +151,14 @@ export default function LoginPage() {
             <Button type="submit" className="w-full" loading={loading}>
               {isSignUp ? 'Create Account' : 'Sign In'}
             </Button>
-          </form>
+            </form>
 
-          <div className="relative my-8">
+          <div className="relative" style={{ marginTop: '24px', marginBottom: '24px' }}>
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-white/10" />
             </div>
             <div className="relative flex justify-center">
-              <span className="px-4 text-xs font-medium text-slate-500 bg-surface-card">or continue with</span>
+              <span className="text-xs font-medium text-slate-500 bg-surface-card" style={{ padding: '0 16px' }}>or continue with</span>
             </div>
           </div>
 
@@ -164,7 +166,7 @@ export default function LoginPage() {
             Try Demo (Pre-loaded data)
           </Button>
 
-          <p className="mt-6 text-center text-sm text-slate-400">
+          <p className="text-center text-sm text-slate-400" style={{ marginTop: '24px' }}>
             {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
             <button
               type="button"
@@ -174,6 +176,7 @@ export default function LoginPage() {
               {isSignUp ? 'Sign in' : 'Sign up'}
             </button>
           </p>
+          </div>
         </div>
 
         <p className="text-center text-xs text-slate-600 mt-6">

@@ -13,7 +13,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, hint, className, id, ...props }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, '-');
     return (
-      <div className="flex flex-col gap-1.5">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
         {label && (
           <label htmlFor={inputId} className="text-sm font-medium text-slate-300">
             {label}
@@ -24,7 +24,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full rounded-md px-4 py-3 text-sm',
+            'w-full rounded-md text-sm',
             'bg-black/20 border border-white/10 text-white placeholder:text-slate-500',
             'focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500',
             'transition-colors duration-150',
@@ -32,6 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             error && 'border-red-500/50 focus:ring-red-500/30',
             className
           )}
+          style={{ padding: '12px 16px' }}
           {...props}
         />
         {error && <p className="text-xs text-red-400">{error}</p>}
@@ -67,7 +68,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full rounded-md px-4 py-3 text-sm',
+            'w-full rounded-md text-sm',
             'bg-black/20 border border-white/10 text-white',
             'focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500',
             'transition-colors duration-150',
@@ -75,6 +76,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             error && 'border-red-500/50 focus:ring-red-500/30',
             className
           )}
+          style={{ padding: '12px 16px' }}
           {...props}
         >
           {placeholder && (
@@ -120,7 +122,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           id={inputId}
           rows={3}
           className={cn(
-            'w-full rounded-md px-4 py-3 text-sm resize-none',
+            'w-full rounded-md text-sm resize-none',
             'bg-black/20 border border-white/10 text-white placeholder:text-slate-500',
             'focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500',
             'transition-colors duration-150',
@@ -128,6 +130,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             error && 'border-red-500/50',
             className
           )}
+          style={{ padding: '12px 16px' }}
           {...props}
         />
         {error && <p className="text-xs text-red-400">{error}</p>}

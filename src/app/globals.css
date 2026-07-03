@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   TAILWIND v4 THEME TOKENS
+   ============================================ */
+@theme {
+  /* Brand (Muted Cerulean / Deep Slate Blue) */
+  --color-brand-50: #f0f7ff;
+  --color-brand-100: #e0f0fe;
+  --color-brand-200: #b9dffb;
+  --color-brand-300: #7cc2f6;
+  --color-brand-400: #36a4ef;
+  --color-brand-500: #128ce0;
+  --color-brand-600: #0470bc;
+  --color-brand-700: #045a99;
+  --color-brand-800: #084c7f;
+  --color-brand-900: #0d4068;
+
+  /* Surface (Deep Navy/Charcoal) */
+  --color-surface: #0a0d14;
+  --color-surface-card: #121620;
+  --color-surface-elevated: #1a1e2b;
+
+  /* Status (Muted/Desaturated) */
+  --color-status-active: #72a382; /* Sage Green */
+  --color-status-warning: #d9b461; /* Muted Gold */
+  --color-status-danger: #d97068; /* Dusty Rose */
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.4s ease-out;
+  --animate-slide-up: slideUp 0.35s ease-out;
+
+  /* Font */
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes criticalPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+
+/* ============================================
+   BASE RESET
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--color-surface);
+  color: #f1f5f9;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* ============================================
+   FOCUS
+   ============================================ */
+*:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ============================================
+   CLEAN CARD
+   ============================================ */
+.glass-card {
+  background: var(--color-surface-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -2px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   HOVER LIFT
+   ============================================ */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+}
+
+/* ============================================
+   STAT CARD OVERLAYS
+   ============================================ */
+.stat-active  { background: var(--color-surface-elevated); border-color: rgba(34,197,94,0.2); }
+.stat-warning { background: var(--color-surface-elevated); border-color: rgba(245,158,11,0.2); }
+.stat-danger  { background: var(--color-surface-elevated); border-color: rgba(239,68,68,0.2); }
+.stat-brand   { background: var(--color-surface-elevated); border-color: rgba(99,102,241,0.25); }
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar {
+  background: linear-gradient(180deg, #0d0d24 0%, #0a0a18 100%);
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar-logo {
+  background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.1) 100%);
+  border: 1px solid rgba(99,102,241,0.25);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: #cbd5e1;
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.1) 100%);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.2);
+  box-shadow: 0 2px 12px rgba(99,102,241,0.15);
+}
+
+/* ============================================
+   TOPBAR
+   ============================================ */
+.topbar {
+  background: rgba(10,10,24,0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.badge-active  { background: var(--color-status-active); color: #000; }
+.badge-warning { background: var(--color-status-warning); color: #000; }
+.badge-danger  { background: var(--color-status-danger); color: #000; }
+.badge-brand   { background: var(--color-brand-500); color: #fff; }
+.badge-high-risk { background: var(--color-status-danger); color: #fff; }
+
+/* ============================================
+   SKELETON
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 10px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.animate-fade-in  { animation: fadeIn 0.4s ease-out both; }
+.animate-slide-up { animation: slideUp 0.35s ease-out both; }
+.count-animate    { animation: countUp 0.5s ease-out both; }
+.critical-pulse   { animation: criticalPulse 2s ease-in-out infinite; }
+
+/* Stagger children */
+.animate-fade-in > * { animation: slideUp 0.4s ease-out both; }
+.animate-fade-in > *:nth-child(1) { animation-delay: 0ms; }
+.animate-fade-in > *:nth-child(2) { animation-delay: 60ms; }
+.animate-fade-in > *:nth-child(3) { animation-delay: 120ms; }
+.animate-fade-in > *:nth-child(4) { animation-delay: 180ms; }
+.animate-fade-in > *:nth-child(5) { animation-delay: 240ms; }
+.animate-fade-in > *:nth-child(6) { animation-delay: 300ms; }
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-brand { box-shadow: 0 0 20px rgba(99,102,241,0.3), 0 0 60px rgba(99,102,241,0.1); }
+.glow-green { box-shadow: 0 0 20px rgba(34,197,94,0.3); }
+.glow-red   { box-shadow: 0 0 20px rgba(239,68,68,0.3); }
+
+/* ============================================
+   TABLE ROWS
+   ============================================ */
+.table-row-hover:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; color: black; }
+}

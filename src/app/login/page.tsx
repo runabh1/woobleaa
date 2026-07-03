@@ -92,7 +92,7 @@ export default function LoginPage() {
       <div className="relative w-full max-w-md animate-slide-up">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-brand-500/20 border border-brand-500/30 mb-4">
+          <div className="inline-flex items-center justify-center h-14 w-14 rounded-md bg-brand-500/20 border border-brand-500/30 mb-4">
             <ShieldCheck className="h-7 w-7 text-brand-400" />
           </div>
           <h1 className="text-2xl font-bold text-white">NeverExpire</h1>
@@ -131,7 +131,7 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   required
                   autoComplete={isSignUp ? 'new-password' : 'current-password'}
-                  className="w-full rounded-md px-3.5 py-2.5 pr-10 text-sm bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-colors"
+                  className="w-full rounded-sm px-3.5 py-2.5 pr-10 text-sm bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-colors"
                 />
                 <button
                   type="button"
